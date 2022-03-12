@@ -1,0 +1,13 @@
+global:
+  postgresql:
+    auth:
+      postgresPassword: demo_password
+
+primary:
+  initdb:
+    user: postgres
+    password: demo_password
+    scripts:
+      seed.sql: |
+        ALTER SYSTEM SET wal_level = logical;
+        CREATE TABLE test_table (id INT);
